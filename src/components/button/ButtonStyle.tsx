@@ -13,6 +13,7 @@ export const buttonStyle = {
     border: 'none',
     padding: '8px 16px',
     cursor: 'pointer',
+    height: 'fit-content',
     boxShadow: 'none',
     '&:hover': {
       backgroundColor: 'transparent'

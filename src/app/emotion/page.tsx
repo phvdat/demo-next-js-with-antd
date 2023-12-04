@@ -21,13 +21,7 @@ const page = () => {
         </Col>
 
         <Col span={4}>
-          <ButtonCustom2 noBorder={false} large>
-            @emotion/style
-          </ButtonCustom2>
-        </Col>
-
-        <Col span={4}>
-          <ButtonCustom2Orange>@emotion/style</ButtonCustom2Orange>
+          <ButtonCustom2Orange large>@emotion/style</ButtonCustom2Orange>
         </Col>
       </Row>
     </div>
