@@ -21,14 +21,13 @@
 - lg: 992px,
 - xl: 1200px,
 - xxl: 1600px,
-  custom breakpoint: not yet found
 
 ## Form
 
-- watch từng field
+- watch từng field: Form.useWatch('name', form);
 - onFinish
 - onFinishFailed
-- validateTrigger
+- validateTrigger: validateTrigger="onBlur"
 - validate Debounce
 - useForm: getFieldError, getFieldsError, getFieldValue, getFieldsValue, setFieldValue, setFieldsValue, isFieldsTouched
 - form.setFields([ {
@@ -80,7 +79,12 @@ Các chủ đề với các phong cách khác nhau có thể được tạo nhan
   color: props.color
   }))
 - as prop: dùng để styles từ 1 styled component nhưng thay đổi element rendered
-  <Button as="a" href="https://github.com/emotion-js/emotion">
-  Emotion on GitHub
-  </Button>
+
+@media (min-width: 420px) {
+font-size: 50px;
+}
+<Button as="a" href="https://github.com/emotion-js/emotion">
+Emotion on GitHub
+</Button>
+
 - Nesting components: nest selectors using &:

@@ -55,6 +55,7 @@ const Register = () => {
 
         <Form.Item<FieldType>
           name='confirmPassword'
+          dependencies={['password']}
           rules={[
             { required: true, message: 'Please input your confirm password!' },
             ({ getFieldValue }) => ({
