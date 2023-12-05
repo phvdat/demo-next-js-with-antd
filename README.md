@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ant Design
 
-## Getting Started
+## Grid
 
-First, run the development server:
+- Col must inside Row
+- gap: 24 (responsive: xs, sm, md, lg, xl, xxl)
+- pull and push: change collumn order (inset-inline-end)
+- justify: start, center, end, space-between, space-around, space-evenly
+- align: top, middle, bottom
+- flex, grap
+- order: using to sort collumn
+- gutter (~ using padding collumn): value or object (for responsive)
+- offset: shifted to the right
+- responsive: span, pull, push, offset, order (ex: xs={{span: 6}})
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Breckpoint (>=)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- xs: 480px,
+- sm: 576px,
+- md: 768px,
+- lg: 992px,
+- xl: 1200px,
+- xxl: 1600px,
+  custom breakpoint: not yet found
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Form
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- watch từng field
+- onFinish
+- onFinishFailed
+- validateTrigger
+- validate Debounce
+- useForm: getFieldError, getFieldsError, getFieldValue, getFieldsValue, setFieldValue, setFieldsValue, isFieldsTouched
+- form.setFields([ {
+  name: 'field-to-update',
+  errors: ['error-string'],
+  },]);
+  support ts kém
 
-## Learn More
+## Customize theme
 
-To learn more about Next.js, take a look at the following resources:
+less and CSS variables of the 4.x => css in js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Seed Token:Some tokens will affect other tokens. We call these tokens Seed Token.
+Định nghĩa một số thuộc tính cho màu chủ đề chính (colorPrimary) và bán kính viền (borderRadius). Seed Token (Token Gốc hoặc Mã Gốc):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Alias Token: Định nghĩa màu nền cho một container (colorBgContainer).
 
-## Deploy on Vercel
+Các chủ đề với các phong cách khác nhau có thể được tạo nhanh chóng bằng cách sửa đổi algorithm.
+3 theme provides:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- default algorithm theme.defaultAlgorithm
+- dark algorithm theme.darkAlgorithm
+- compact algorithm theme.compactAlgorithm
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## antd/cssinjs
+
+@ant-design/css-in-js không phải là một thư viện CSS-in-JS riêng lẻ, nó là một phần của Ant Design. dùng emotion nếu muốn style theo cssinjs
+
+- useServerInsertedHTML từ "next/navigation": Có vẻ như đây là một phương thức được sử dụng trong Next.js để xử lý việc chèn HTML từ server.
+- Sử dụng useMemo để tạo một cache để lưu trữ các style.
+- Sử dụng useRef để theo dõi việc đã chèn HTML từ server hay chưa, từ đó tránh chèn trùng lặp.
+- createCache(): Phương thức này tạo một cache để lưu trữ các style.
+- hashPriority="high": remove':where'(dùng để giảm độ ưu tiên)> kém trên các trình duyệt cũ hoặc xung đột ưu tiên như tailwind): vô hiệu hóa việc giảm độ ưu tiên mặc định -legacyLogicalPropertiesTransformer: cần tương thích với các trình duyệt cũ hơn (the original margin-left is replaced by margin-inline-start) - px2remTransformer: chuyển đổi pixel qua rem
+
+## Emotion
+
+@emotion/styled
+
+- @emotion/styled lấy cảm hứng nhiều từ styled-components
+- component style thiên về cú pháp tạo kiểu giống CSS truyền thống hơn.
+- có thể truyền props
+- Styling any component: có thể tạo kiểu cho bất kỳ thành phần nào miễn là nó chấp nhận prop className.
+- Change the rendered tag using withComponent: tái sử dụng kiểu với component khác
+- Targeting another emotion component
+- Customizing prop forwarding: to prevent styling props được truyền xuống và tạo thuộc tính invalid:
+  const H1 = styled('h1', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
+  })(props => ({
+  color: props.color
+  }))
+- as prop: dùng để styles từ 1 styled component nhưng thay đổi element rendered
+  <Button as="a" href="https://github.com/emotion-js/emotion">
+  Emotion on GitHub
+  </Button>
+- Nesting components: nest selectors using &:

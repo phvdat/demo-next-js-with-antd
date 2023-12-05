@@ -1,10 +1,8 @@
 'use client';
+/** @jsxImportSource @emotion/react */
 import { Button, Checkbox, ConfigProvider, Form, Input, Space } from 'antd';
 import theme from '../../../Theme/themeConfig';
 import { useEffect } from 'react';
-import ButtonCustom from '@/components/button/Button';
-import { css } from '@emotion/react';
-import ButtonCustom2 from '@/components/button2/Button';
 
 type FieldType = {
   username?: string;
@@ -86,6 +84,7 @@ const Register = () => {
         <Form.Item shouldUpdate wrapperCol={{ offset: 8, span: 16 }}>
           {({ isFieldsTouched, getFieldsError }) => (
             <Button
+              color='blue-1'
               type='primary'
               htmlType='submit'
               disabled={
@@ -99,7 +98,6 @@ const Register = () => {
           )}
         </Form.Item>
       </Form>
-
       <Button onClick={() => form.resetFields()}>reset fields</Button>
     </ConfigProvider>
   );
