@@ -35,12 +35,14 @@
   errors: ['error-string'],
   },]);
   support ts kém
+- size
+
+#Form.List
+Note: You should not configure Form.Item initialValue under Form.List. It always should be configured by Form.List initialValue or Form initialValues.
 
 ## Customize theme
 
-less and CSS variables of the 4.x => css in js
-
-Seed Token:Some tokens will affect other tokens. We call these tokens Seed Token.
+Seed Token: modify Design Token globally
 Định nghĩa một số thuộc tính cho màu chủ đề chính (colorPrimary) và bán kính viền (borderRadius). Seed Token (Token Gốc hoặc Mã Gốc):
 
 Alias Token: Định nghĩa màu nền cho một container (colorBgContainer).
@@ -51,6 +53,11 @@ Các chủ đề với các phong cách khác nhau có thể được tạo nhan
 - default algorithm theme.defaultAlgorithm
 - dark algorithm theme.darkAlgorithm
 - compact algorithm theme.compactAlgorithm
+
+#custom component token
+
+- algorithm: By default, all component tokens can only override global token and will not be derived based on Seed Token.
+  In version >= 5.8.0, component tokens support the algorithm property, which can be used to enable algorithm or pass in other algorithms.
 
 ## antd/cssinjs
 

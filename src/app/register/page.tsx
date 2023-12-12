@@ -1,6 +1,14 @@
 'use client';
 /** @jsxImportSource @emotion/react */
-import { Button, Checkbox, ConfigProvider, Form, Input, Space } from 'antd';
+import {
+  Button,
+  Card,
+  Checkbox,
+  ConfigProvider,
+  Form,
+  Input,
+  theme as Theme
+} from 'antd';
 import theme from '../../../Theme/themeConfig';
 import { useEffect } from 'react';
 
@@ -25,13 +33,17 @@ const Register = () => {
     console.log(userName);
   }, [userName]);
 
+  const { token } = Theme.useToken();
+  const { colorBgContainer } = token;
+
   return (
-    <ConfigProvider theme={theme}>
+    <>
+      <Card style={{ width: 'max-content' }}>card</Card>
       <Form
         name='basic'
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
+        style={{ maxWidth: 600, backgroundColor: colorBgContainer }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -85,7 +97,6 @@ const Register = () => {
         <Form.Item shouldUpdate wrapperCol={{ offset: 8, span: 16 }}>
           {({ isFieldsTouched, getFieldsError }) => (
             <Button
-              color='blue-1'
               type='primary'
               htmlType='submit'
               disabled={
@@ -99,8 +110,11 @@ const Register = () => {
           )}
         </Form.Item>
       </Form>
+      <Button type='primary' htmlType='submit'>
+        Submit
+      </Button>
       <Button onClick={() => form.resetFields()}>reset fields</Button>
-    </ConfigProvider>
+    </>
   );
 };
 

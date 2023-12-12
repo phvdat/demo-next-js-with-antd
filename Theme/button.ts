@@ -17,6 +17,8 @@ export const buttonConfig:
   colorPrimaryText: '#171717',
   colorPrimaryTextHover: '#171717',
   primaryShadow: 'none',
+  controlHeightLG: 40,
   // default
-  textHoverBg: 'transparent'
+  textHoverBg: 'transparent',
+  algorithm: true
 };

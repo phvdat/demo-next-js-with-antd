@@ -14,7 +14,6 @@ interface ButtonCustomProps extends PropsWithChildren, ButtonProps {
 const ButtonCustom = (props: ButtonCustomProps) => {
   const { useToken } = antdTheme;
   const { token: theme } = useToken();
-  console.log(theme.colorBgContainer);
 
   const { children, prefixIcon, customSelf, ...rest } = props;
   return (
