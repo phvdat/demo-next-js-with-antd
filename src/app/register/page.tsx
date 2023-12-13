@@ -9,7 +9,6 @@ import {
   Input,
   theme as Theme
 } from 'antd';
-import theme from '../../../Theme/themeConfig';
 import { useEffect } from 'react';
 
 type FieldType = {
@@ -35,7 +34,13 @@ const Register = () => {
 
   const { token } = Theme.useToken();
   const { colorBgContainer } = token;
-
+  const handleSetData = () => {
+    form.setFieldsValue({
+      username: 'admin',
+      password: '123456'
+    });
+    form.setFieldValue('confirmPassword', '123456');
+  };
   return (
     <>
       <Card style={{ width: 'max-content' }}>card</Card>
@@ -114,6 +119,7 @@ const Register = () => {
         Submit
       </Button>
       <Button onClick={() => form.resetFields()}>reset fields</Button>
+      <Button onClick={handleSetData}>set fields</Button>
     </>
   );
 };
