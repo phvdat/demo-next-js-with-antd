@@ -1,15 +1,31 @@
-import { theme as themeAntD, type ThemeConfig } from 'antd';
-import { buttonConfig } from './button';
-const theme: ThemeConfig = {
+import { theme, type ThemeConfig } from 'antd';
+const themeConfig: ThemeConfig = {
   token: {
     // Seed Token
     screenXL: 1400,
-    borderRadius: 2
+    borderRadius: 2,
+    colorPrimaryActive: 'black'
   },
-  algorithm: themeAntD.darkAlgorithm,
   components: {
-    Button: buttonConfig
+    Button: {
+      borderRadius: 4,
+      // primary button
+      colorPrimary: 'rgba(250, 204, 21, 1)',
+      colorPrimaryHover: 'rgba(253, 224, 71, 1)',
+      colorPrimaryActive: 'rgba(253, 224, 71, 1)',
+      primaryColor: '#171717',
+      colorPrimaryText: '#171717',
+      colorPrimaryTextHover: '#171717',
+      primaryShadow: 'none',
+      contentFontSize: 14,
+      // controlHeight: 40,
+      // controlHeightSM: 32,
+      controlPaddingHorizontalSM: 40,
+      // default
+      textHoverBg: 'transparent',
+      algorithm: false
+    }
   }
 };
 
-export default theme;
+export default themeConfig;

@@ -39,15 +39,8 @@ const Register = () => {
   };
 
   const handleClearAllField = () => {
-    const formValueClear = Array.from(new Array(100)).map(() => ({
-      symbol: faker.finance.currencyCode(),
-      slippage: faker.lorem.text(),
-      time: faker.helpers.rangeToNumber({ min: 1, max: 60 }),
-      block: faker.datatype.boolean()
-    }));
+    const formValueClear = Array.from(new Array(100)).forEach(() => {});
     form.setFieldsValue({ symbolForm: formValueClear });
-    const fields = form.getFieldsValue();
-    const { symbolForm } = fields;
   };
 
   return (
@@ -106,8 +99,13 @@ const Register = () => {
         )}
       </Form.List>
       <Form.Item>
-        <Button type='primary' htmlType='submit'>
-          Submit
+        <Button type='primary' htmlType='submit' style={{ maxWidth: 100 }}>
+          Submit Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+          quis sequi, esse adipisci magnam at dolor tempore sapiente nesciunt
+          iure? Qui incidunt error autem voluptates vitae et delectus ex, velit
+          facilis maiores modi eaque quam nihil rem ducimus est tenetur, harum
+          necessitatibus eligendi consectetur aut dolores? Porro eveniet sint
+          natus.
         </Button>
       </Form.Item>
     </Form>

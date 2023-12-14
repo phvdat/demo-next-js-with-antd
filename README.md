@@ -22,6 +22,8 @@
 - xl: 1200px,
 - xxl: 1600px,
 
+https://github.com/ant-design/ant-design/pull/39105
+
 ## Form
 
 - watch từng field: Form.useWatch('name', form);
@@ -62,10 +64,9 @@ Các chủ đề với các phong cách khác nhau có thể được tạo nhan
   checkbox={{ className: 'my-checkbox' }}
   divider={{ className: 'my-divider' }}
   />
+  https://ant.design/theme-editor
 
-## color
-
-two levels: a system-level color system and a product-level color system.
+ConfigProvider supports the className and style configurations of all components
 
 ## antd/cssinjs
 
@@ -103,3 +104,4 @@ Emotion on GitHub
 </Button>
 
 - Nesting components: nest selectors using &:
+  https://emotion.sh/docs/styled

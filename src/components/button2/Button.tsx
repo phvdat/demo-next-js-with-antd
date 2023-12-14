@@ -16,6 +16,7 @@ const CustomButton = styled(Button)<ButtonCustomProps>`
   padding: ${(props) => (props.large ? '16px 32px' : '8px 16px')};
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: auto;
   &:hover {
     background-color: #40a9ff;
   }
