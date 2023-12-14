@@ -1,4 +1,4 @@
-'use client';
+"use client";
 /** @jsxImportSource @emotion/react */
 import {
   Button,
@@ -7,9 +7,12 @@ import {
   ConfigProvider,
   Form,
   Input,
-  theme as Theme
-} from 'antd';
-import { useEffect } from 'react';
+  Layout,
+  theme as Theme,
+} from "antd";
+import { Footer, Header } from "antd/es/layout/layout";
+import { Content } from "next/font/google";
+import { useEffect } from "react";
 
 type FieldType = {
   username?: string;
@@ -21,12 +24,12 @@ type FieldType = {
 const Register = () => {
   const [form] = Form.useForm();
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    console.log("Success:", values);
   };
-  const userName = Form.useWatch('username', form);
+  const userName = Form.useWatch("username", form);
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-    console.log(form.getFieldError('username'));
+    console.log("Failed:", errorInfo);
+    console.log(form.getFieldError("username"));
   };
   useEffect(() => {
     console.log(userName);
@@ -36,16 +39,16 @@ const Register = () => {
   const { colorBgContainer } = token;
   const handleSetData = () => {
     form.setFieldsValue({
-      username: 'admin',
-      password: '123456'
+      username: "admin",
+      password: "123456",
     });
-    form.setFieldValue('confirmPassword', '123456');
+    form.setFieldValue("confirmPassword", "123456");
   };
   return (
     <>
-      <Card style={{ width: 'max-content' }}>card</Card>
+      <Card style={{ width: "max-content" }}>card</Card>
       <Form
-        name='basic'
+        name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600, backgroundColor: colorBgContainer }}
@@ -53,38 +56,38 @@ const Register = () => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         form={form}
-        autoComplete='on'
+        autoComplete="on"
       >
         <Form.Item<FieldType>
-          name='username'
-          rules={[{ required: true, message: 'Please input your username!' }]}
+          name="username"
+          rules={[{ required: true, message: "Please input your username!" }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item<FieldType>
-          name='password'
-          rules={[{ required: true, message: 'Please input your password!' }]}
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
           shouldUpdate
         >
           <Input.Password />
         </Form.Item>
 
         <Form.Item<FieldType>
-          name='confirmPassword'
-          dependencies={['password']}
+          name="confirmPassword"
+          dependencies={["password"]}
           rules={[
-            { required: true, message: 'Please input your confirm password!' },
+            { required: true, message: "Please input your confirm password!" },
             ({ getFieldValue }) => ({
               validator(_, value) {
-                if (!value || getFieldValue('password') === value) {
+                if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
                 return Promise.reject(
-                  new Error('The new password that you entered do not match!')
+                  new Error("The new password that you entered do not match!")
                 );
-              }
-            })
+              },
+            }),
           ]}
           validateDebounce={500}
           shouldUpdate
@@ -93,8 +96,8 @@ const Register = () => {
         </Form.Item>
 
         <Form.Item<FieldType>
-          name='remember'
-          valuePropName='checked'
+          name="remember"
+          valuePropName="checked"
           wrapperCol={{ offset: 8, span: 16 }}
         >
           <Checkbox>Remember me</Checkbox>
@@ -102,8 +105,8 @@ const Register = () => {
         <Form.Item shouldUpdate wrapperCol={{ offset: 8, span: 16 }}>
           {({ isFieldsTouched, getFieldsError }) => (
             <Button
-              type='primary'
-              htmlType='submit'
+              type="primary"
+              htmlType="submit"
               disabled={
                 !isFieldsTouched(true) ||
                 getFieldsError().filter(({ errors }) => errors.length).length >
@@ -115,7 +118,7 @@ const Register = () => {
           )}
         </Form.Item>
       </Form>
-      <Button type='primary' htmlType='submit'>
+      <Button type="primary" htmlType="submit">
         Submit
       </Button>
       <Button onClick={() => form.resetFields()}>reset fields</Button>

@@ -13,7 +13,7 @@
 - offset: shifted to the right
 - responsive: span, pull, push, offset, order (ex: xs={{span: 6}})
 
-## Breckpoint (>=)
+## Breakpoint (>=)
 
 - xs: 480px,
 - sm: 576px,
@@ -42,9 +42,7 @@ Note: You should not configure Form.Item initialValue under Form.List. It always
 
 ## Customize theme
 
-Seed Token: modify Design Token globally
-Định nghĩa một số thuộc tính cho màu chủ đề chính (colorPrimary) và bán kính viền (borderRadius). Seed Token (Token Gốc hoặc Mã Gốc):
-
+Seed Token: modify Design Token globally, Seed Token có nghĩa là nguồn gốc của mọi ý định thiết kế. Ví dụ: chúng ta có thể thay đổi màu theme bằng cách thay đổi colorPrimary, thuật toán bên trong antd sẽ tự động tính toán và áp dụng dãy màu tương ứng theo Seed Token
 Alias Token: Định nghĩa màu nền cho một container (colorBgContainer).
 
 Các chủ đề với các phong cách khác nhau có thể được tạo nhanh chóng bằng cách sửa đổi algorithm.
@@ -58,6 +56,16 @@ Các chủ đề với các phong cách khác nhau có thể được tạo nhan
 
 - algorithm: By default, all component tokens can only override global token and will not be derived based on Seed Token.
   In version >= 5.8.0, component tokens support the algorithm property, which can be used to enable algorithm or pass in other algorithms.
+  #Extends Theme
+  <ConfigProvider
+  button={{ className: 'my-button' }}
+  checkbox={{ className: 'my-checkbox' }}
+  divider={{ className: 'my-divider' }}
+  />
+
+## color
+
+two levels: a system-level color system and a product-level color system.
 
 ## antd/cssinjs
 
